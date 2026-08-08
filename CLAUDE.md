@@ -9,8 +9,19 @@
 
 - 언어: 한국어 기본, 영어 선택 가능(사이트 우측 상단 토글 버튼). 한 페이지(`index.html`) 안에
   한국어/영어 콘텐츠를 모두 넣어두고 CSS/JS로 전환하는 방식 — 별도 페이지·빌드 과정 없음.
-- git 저장소 아님(`.git` 없음). GitHub Pages로 배포하려면 git 초기화 + GitHub 저장소 연결이
-  필요한데, 이 시점까지는 아직 진행 안 함(사용자가 요청하면 진행).
+- **2026-08-08부터 실제 배포됨**: `https://heonjoojunglab.github.io/jung-lab-website/`
+  (GitHub Pages, `heonjoojunglab` 계정의 공개 저장소 `jung-lab-website`, `master` 브랜치
+  루트에서 서빙). git 저장소이며 원격 `origin`이 연결돼 있음 — 이제 코드를 고치면
+  **`git add . && git commit -m "..." && git push`까지 해야 실제 사이트에 반영됨**(로컬
+  파일만 고치고 끝내면 배포판은 그대로임, 잊지 말 것).
+  - **`assets/files/`는 `.gitignore`로 저장소에서 제외됨** — 이력서 원본 PDF에 개인 휴대폰
+    번호가 들어있어서, 페이지에서 다운로드 버튼을 빼는 것만으로는 부족하다고 판단해(URL을
+    알면 접근 가능하므로) 아예 git에 안 올리기로 함(2026-08-08). 실제 배포 사이트에서
+    `assets/files/Heon_Joo_Jung_CV.pdf` 접근 시 404 나는 것 확인함. **새로 추가하는 파일에
+    개인정보가 포함돼 있을 가능성이 있으면, 커밋 전에 항상 이 점을 먼저 확인할 것.**
+  - GitHub CLI(`gh`)로 인증(`gh auth login --web`, 계정 `heonjoojunglab`)한 뒤 `gh repo
+    create --public --source=. --push`로 저장소 생성+푸시, `gh api`로 Pages 활성화까지
+    전부 이 세션에서 처음 설정함. 이 컴퓨터에 git/gh가 없어서 `winget`으로 설치부터 했음.
 
 ## 폴더 구성
 
@@ -135,7 +146,6 @@ python -m http.server 8765
 
 ## 다음에 할 만한 일 (미착수)
 
-- GitHub Pages/Netlify 등 실제 배포 (git 초기화부터 필요, 사용자 요청 시 진행)
 - 블로그 링크 추가 (블로그가 생기면)
 - 미디어 보도 자동 목록에 수동 큐레이션 옵션 추가 여부 검토(자동 목록에 정말 관련된 기사만
   나오는지 사용자가 몇 주 지켜본 뒤 결정하는 게 좋을 듯)
