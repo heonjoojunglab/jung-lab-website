@@ -68,8 +68,16 @@
       }
       if (statusEl) statusEl.remove();
 
+      // 구글 뉴스 RSS는 관련도순으로 섞여서 오기 때문에, 화면에는 항상 최신 기사가
+      // 먼저 보이도록 pubDate 기준 내림차순으로 직접 정렬한다.
+      const sortedItems = data.items.slice().sort((a, b) => {
+        const dateA = a.pubDate ? new Date(a.pubDate).getTime() : 0;
+        const dateB = b.pubDate ? new Date(b.pubDate).getTime() : 0;
+        return dateB - dateA;
+      });
+
       const MAX_ITEMS = 8;
-      data.items.slice(0, MAX_ITEMS).forEach((item) => {
+      sortedItems.slice(0, MAX_ITEMS).forEach((item) => {
         const li = document.createElement('li');
         const date = item.pubDate ? item.pubDate.split(' ')[0] : '';
         // rss2json이 title에 " - 언론사명"을 붙여주는 경우가 많아 그대로 활용합니다.

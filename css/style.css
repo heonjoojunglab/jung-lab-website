@@ -294,15 +294,6 @@ details.pub-group li .venue { color: var(--text-muted); }
   padding-top: 0.8rem;
 }
 
-.blog-placeholder {
-  border: 1px dashed var(--border);
-  border-radius: var(--radius);
-  padding: 1.2rem;
-  color: var(--text-muted);
-  font-size: 0.92rem;
-  margin-top: 1rem;
-}
-
 /* ---------- 연락처 ---------- */
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
 .contact-item {
