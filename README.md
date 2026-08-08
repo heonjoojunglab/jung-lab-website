@@ -3,6 +3,8 @@
 연세대학교 행정학과 정헌주 교수의 개인 소개 홈페이지입니다. 빌드 도구 없이 HTML/CSS/JS
 파일만으로 만들어져서, 폴더째로 어디에든 올리면 바로 동작합니다.
 
+🌐 **실제 사이트**: https://heonjoojunglab.github.io/jung-lab-website/
+
 ## 폴더 구성
 
 ```
@@ -42,4 +44,19 @@ Jung-lab-website/
 
 ## 인터넷에 실제로 올리기 (배포)
 
-아직 진행 전입니다. GitHub Pages나 Netlify에 무료로 올릴 수 있는데, 원하시면 도와드리겠습니다.
+**완료됨** — GitHub Pages(`heonjoojunglab/jung-lab-website` 저장소)로 배포돼 있습니다.
+**내용을 수정한 뒤에는 아래 명령으로 실제 사이트에도 반영해야 합니다** (로컬 파일만 고치고
+끝내면 실제 사이트는 안 바뀝니다):
+
+```powershell
+cd Jung-lab-website
+git add .
+git commit -m "수정 내용 설명"
+git push
+```
+
+몇 분 내로 https://heonjoojunglab.github.io/jung-lab-website/ 에 반영됩니다.
+
+⚠️ `assets/files/`(이력서 원본 PDF) 폴더는 개인 휴대폰 번호가 들어있어서 일부러 배포 대상에서
+뺐습니다(`.gitignore` 참고). 이 폴더 안 파일은 git에 올라가지 않으니, 여기에 새 파일을 넣을
+땐 원래도 공개돼도 괜찮은 파일만 넣거나, 개인정보가 있으면 다른 폴더에 보관하세요.
